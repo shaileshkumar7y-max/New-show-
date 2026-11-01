@@ -1,27 +1,10 @@
-# BLACKED Show Update — Phone se upload karne ka tarika
+# Android upload guide — New-show-
 
-Ye ZIP **existing** `Vikas915577/Couple-game-` repository ke liye update package hai. Is ZIP ko kisi naye blank repository mein upload mat karna.
+1. Open the **shaileshkumar7y-max/New-show-** repository on GitHub.
+2. Choose the `main` branch and upload the extracted update files into the repository root. Do not upload only the ZIP file.
+3. Make sure `index.html`, `styles.css`, `app.js`, `manifest.json`, `icon.svg`, `sw.js` and the `assets` folder are present together.
+4. Commit the changes. Keep `assets/black-ed-campaign.webp` in its `assets` folder; the home and fashion pages need it.
+5. Wait for GitHub Pages to publish, then open the published site in a private/incognito tab. Confirm the 18+ checkboxes unlock the house, open several games and reload the page to confirm saved progress.
+6. If the previous page still appears, clear site data/service-worker cache and reload twice.
 
-## Android phone se
-
-1. ZIP download karke Files app mein **Extract** karo.
-2. Extracted folder ke andar `index.html`, `classic.html`, `manifest.json`, `icon.svg`, `sw.js` aur docs milenge.
-3. GitHub par `Vikas915577/Couple-game-` repository kholo aur `main` branch select karo.
-4. Repository ke root (top-level) mein jao. Extracted files ko root mein upload/replace karo. GitHub par ZIP ko as-is upload karne se website update nahi hoti; ZIP pehle extract karna zaroori hai.
-5. Existing `app.js` aur `styles.css` ko **delete ya replace mat karna**. `classic.html` in dono files se purana YaarJam Arcade kholta hai.
-6. Changes commit karo. GitHub Pages agar `main` branch / root se publish hota hai, toh deployment complete hone ke baad website kholo.
-7. Pehle incognito/private tab mein test karo. Purana page ya design dikhe toh site data/cache clear karke reload karo; service worker update hone ke liye ek extra reload lag sakta hai.
-
-## ZIP ke andar kya hai
-
-- `index.html` — naya BLACKED show home + 20 playable modes.
-- `classic.html` — purana YaarJam interface alag page par preserve.
-- `manifest.json`, `icon.svg`, `sw.js` — PWA title/icon/offline cache update.
-- `RELEASE_NOTES.md`, `QA_CHECKLIST.md` — release notes aur test status.
-- `smoke-test.cjs` — basic local smoke test (Node.js environment ke liye).
-
-## Important
-
-- Ye frontend-only/local-first release hai. Multiplayer cross-device sync, remote leaderboard, product checkout ya admin analytics add nahi kiye gaye.
-- 18+ screen self-attestation hai, verified identity/age-check service nahi.
-- Names, scores, favourite prompts aur history browser ke local storage mein rehte hain. Browser data clear karne se pehle Profile se backup export karo.
+The update is frontend-only and does not require secrets, backend setup or API keys. The 18+ gate is self-attestation, not verified age checking.

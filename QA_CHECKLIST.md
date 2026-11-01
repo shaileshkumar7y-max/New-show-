@@ -1,22 +1,20 @@
-# Release QA checklist
+# QA Checklist — BLACKED Show Update
 
-## Automated checks run in this workspace
-- JavaScript syntax check: **PASS** (`node --check` on the extracted inline script).
-- Runtime smoke test: **PASS** (18+ gate acknowledgement, house rendering, all 20 game modes start and complete, points/history persistence, profile rendering, and spin-wheel result).
-- PWA asset-path review: **PASS** for the files included in this update. `manifest.json` points to root `icon.svg`; service-worker cache list includes the new show files and the existing Classic Arcade files.
-- Full visual/browser/device test: **NOT RUN** in a real Android browser in this workspace.
+## Automated local checks
+- [x] `node --check app.js` passes.
+- [x] `node smoke-test.cjs` passes.
+- [x] All 23 game IDs launch and complete a round in the local runtime smoke test.
+- [x] Score totals and completed-round history persist in local storage.
+- [x] House, Games, Task Arena, Ranks, Spin, BLACKED Fashion and Profile views render.
+- [x] Housemate add, custom challenge save, comfort-level save and favourites work.
+- [x] Pause/resume, safe skip, Secret Joker, wheel spin and off-camera exit work.
+- [x] Local CSS, JS, icon, manifest, service worker and campaign image paths exist.
+- [x] ZIP integrity check passes.
 
-## Manual checks after deployment
-1. Open the page in an incognito/private tab. Confirm the entry button stays disabled until both age and consent acknowledgements are checked.
-2. Enter the house; check the hero, five mobile navigation tabs, twenty game cards and BLACKED wardrobe.
-3. Start all twenty modes; verify prompt, Complete, Skip, Pause, Favourite, Off-camera Choice and Stop actions.
-4. Complete and skip rounds; verify points, counters and leaderboard update.
-5. Spin the wheel from the Spin page; check each comfort level.
-6. Add/remove housemates, add/remove a custom challenge, export/import backup and reset progress.
-7. Open Classic Arcade; confirm it loads using the preserved `app.js` and `styles.css` and existing YaarJam saves remain separate.
-8. Install/open as a PWA, reload once online to update the service worker, then test the cached app shell offline.
+## Deployment checks still required
+- [ ] Confirm GitHub Pages has published the new main-branch files.
+- [ ] Run the page on a physical Android phone after deployment.
+- [ ] Confirm the service worker refreshes the previous cache and the campaign image loads over GitHub Pages.
+- [ ] Re-test the age/consent gate, a complete round, skip, pause/resume and reload persistence on the published URL.
 
-## Boundaries and release limitations
-- Local-first only: cross-device rooms, shared live leaderboard, remote profiles, product checkout and central admin analytics need a separate backend and privacy design.
-- The browser's 18+ gate is an acknowledgement, not verified age assurance.
-- Adult-mode prompts are non-graphic; the app does not instruct, record or require sexual activity. Each challenge can be skipped, paused or stopped.
+The 18+ entry check is self-attestation, not verified age assurance. All challenges are optional and must stop immediately when any player says stop.
